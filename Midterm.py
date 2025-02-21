@@ -45,7 +45,12 @@ def pattern_matches(text):
     :return: number of matches
     """
     count = 0
-    words = text.split()  # Split text into words
+    punctuation = ",.?!';\""
+    for line in text:
+        for p in punctuation:
+            text = text.replace(p, "")
+
+        words = text.split()  # Split text into words
 
     for word in words:
         if word.startswith("C") and word.endswith("jeb"):
@@ -80,7 +85,6 @@ changed_numbers = []
 for number in random_numbers:
 
 print(changed_numbers)
-
 
 #Question 8
 
